@@ -10,22 +10,21 @@
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"EngineVersion": "5.3.0",
-	"EnabledByDefault": false,
+	"EngineVersion": "5.4.0",
 	"CanContainContent": false,
-	"Installed": false,
+	"Installed": true,
 	"Modules": [
 		{
 			"Name": "GASAttachEditor",
 			"Type": "DeveloperTool",
 			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"GameplayAbilities"
-			],
-			"WhitelistPlatforms": [
+			"PlatformAllowList": [
 				"Win64",
 				"Linux",
 				"Mac"
+			],
+			"AdditionalDependencies": [
+				"GameplayAbilities"
 			]
 		}
 	],
