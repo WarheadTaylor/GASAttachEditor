@@ -112,7 +112,7 @@ FName FGASGameplayEffectNode::GetGAName() const
 		return *ModInfo->Attribute.GetName();
 	}
 
-	return *GetNameSafe(GameplayEffect.Spec.Def);
+	return FName(GameplayEffect.Spec.Def->GetName().Replace(TEXT("Default__"), TEXT("")));
 }
 
 FGASGameplayEffectNode::FGASGameplayEffectNode(const UWorld* InWorld, const FActiveGameplayEffect InGameplayEffect)
