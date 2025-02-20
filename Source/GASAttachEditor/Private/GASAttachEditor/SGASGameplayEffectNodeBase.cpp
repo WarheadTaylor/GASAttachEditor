@@ -31,7 +31,7 @@ FText FGASGameplayEffectNode::GetDurationText() const
 		return DurationText;
 	}
 
-	DurationText = LOCTEXT("GameplayEffectInfiniteDurationText", "Infinite Duration");
+	DurationText = LOCTEXT("GameplayEffectInfiniteDurationText", "Infinite");
 
 	FNumberFormattingOptions NumberFormatOptions;
 	NumberFormatOptions.MaximumFractionalDigits = 2;
