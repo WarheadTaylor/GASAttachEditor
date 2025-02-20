@@ -10,6 +10,7 @@
 
 static FName NAME_AttributesName(TEXT("AttributesName"));
 static FName NAME_GANumericAttribute(TEXT("GANumericAttribute"));
+static FName NAME_GAAttributeBaseValue(TEXT("GAAttributeBaseValue"));
 
 class UAbilitySystemComponent;
 
@@ -28,6 +29,9 @@ public:
 	// 当前属性值
 	// Current attribute value
 	virtual float GetNumericAttribute() const = 0;
+
+	// Base attribute value
+	virtual float GetBaseValue() const = 0;
 
 protected:
 
@@ -60,6 +64,7 @@ protected:
 
 	FName GAName;
 	float NumericAttribute;
+	float BaseValue;
 };
 
 class FGASAttributesNode : public FGASAttributesNodeBase
@@ -75,6 +80,7 @@ public:
 
 
 	virtual float GetNumericAttribute() const override;
+	virtual float GetBaseValue() const override;
 
 
 private:
