@@ -37,17 +37,14 @@ FText FGASGameplayEffectNode::GetDurationText() const
 	NumberFormatOptions.MaximumFractionalDigits = 2;
 	if (GameplayEffect.GetDuration() > 0.f)
 	{
-		DurationText = FText::Format(LOCTEXT("GameplayEffectDurationStr", "Duration: {0},Remaining: {1} (Start: {2} / {3} / {4})"),
+		DurationText = FText::Format(LOCTEXT("GameplayEffectDurationStr", "Duration: {0} - Time Remaining: {1}"),
 			FText::AsNumber(GameplayEffect.GetDuration(), &NumberFormatOptions),
-			FText::AsNumber(GameplayEffect.GetTimeRemaining(World->GetTimeSeconds()), &NumberFormatOptions),
-			FText::AsNumber(GameplayEffect.StartServerWorldTime, &NumberFormatOptions),
-			FText::AsNumber(GameplayEffect.CachedStartServerWorldTime, &NumberFormatOptions),
-			FText::AsNumber(GameplayEffect.StartWorldTime, &NumberFormatOptions));
+			FText::AsNumber(GameplayEffect.GetTimeRemaining(World->GetTimeSeconds()), &NumberFormatOptions));
 	}
 
 	if (GameplayEffect.GetPeriod() > 0.f)
 	{
-		DurationText = FText::Format(LOCTEXT("GameplayEffectPeriod","{0} Period: {1}"), DurationText, FText::AsNumber(GameplayEffect.GetPeriod(), &NumberFormatOptions));
+		DurationText = FText::Format(LOCTEXT("GameplayEffectPeriod","{0} - Period: {1}"), DurationText, FText::AsNumber(GameplayEffect.GetPeriod(), &NumberFormatOptions));
 	}
 
 	return DurationText;
