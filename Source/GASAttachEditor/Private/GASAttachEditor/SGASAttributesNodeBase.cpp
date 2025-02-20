@@ -28,6 +28,13 @@ float FGASAttributesNode::GetNumericAttribute() const
 	return ASComponent->GetNumericAttribute(Attribute);
 }
 
+float FGASAttributesNode::GetBaseValue() const
+{
+	if (!ASComponent.IsValid()) return -1.f;
+
+	return ASComponent->GetNumericAttributeBase(Attribute);
+}
+
 FGASAttributesNode::FGASAttributesNode(TWeakObjectPtr<UAbilitySystemComponent> InASComponent, const FGameplayAttribute InAttribute)
 {
 	ASComponent = InASComponent;
@@ -44,6 +51,8 @@ void SGASAttributesTreeItem::Construct(const FArguments& InArgs, const TSharedRe
 	GAName = WidgetInfo->GetGAName();
 
 	NumericAttribute = WidgetInfo->GetNumericAttribute();
+
+	BaseValue = WidgetInfo->GetBaseValue();
 
 	SMultiColumnTableRow< TSharedRef<FGASAttributesNodeBase> >::Construct(SMultiColumnTableRow< TSharedRef<FGASAttributesNodeBase> >::FArguments().Padding(0), InOwnerTableView);
 }
@@ -71,6 +80,17 @@ TSharedRef<SWidget> SGASAttributesTreeItem::GenerateWidgetForColumn(const FName&
 			[
 				SNew(STextBlock)
 				.Text(FText::AsNumber(NumericAttribute))
+				.Justification(ETextJustify::Center)
+			];
+	} else if (NAME_GAAttributeBaseValue == ColumnName)
+	{
+		return SNew(SBox)
+			.HAlign(HAlign_Left)
+			.VAlign(VAlign_Center)
+			.Padding(FMargin(2.0f, 0.0f))
+			[
+				SNew(STextBlock)
+				.Text(FText::AsNumber(BaseValue))
 				.Justification(ETextJustify::Center)
 			];
 	}

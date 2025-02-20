@@ -1680,13 +1680,18 @@ TSharedPtr<SWidget> SGASAttachEditorImpl::CreateAttributesToolWidget()
 
 					+ SHeaderRow::Column(NAME_AttributesName)
 					//.DefaultLabel(LOCTEXT("AttributesName", "属性名称"))
-					.DefaultLabel(LOCTEXT("AttributesName", "AttributesName"))
+					.DefaultLabel(LOCTEXT("AttributesName", "Attribute Name"))
 					.FillWidth(0.4f)
 					.ShouldGenerateWidget(true)
 
 					+ SHeaderRow::Column(NAME_GANumericAttribute)
 					//.DefaultLabel(LOCTEXT("GAAttributeStateType", "当前属性值"))
-					.DefaultLabel(LOCTEXT("GAAttributeStateType", "Attribute Value"))
+					.DefaultLabel(LOCTEXT("GAAttributeStateType", "Current Value"))
+					.FillWidth(0.6f)
+
+					+ SHeaderRow::Column(NAME_GAAttributeBaseValue)
+					//.DefaultLabel(LOCTEXT("GAAttributeBaseValue", "基础属性值"))
+					.DefaultLabel(LOCTEXT("GAAttributeBaseValue", "Base Value"))
 					.FillWidth(0.6f)
 
 				)
