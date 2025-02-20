@@ -291,7 +291,7 @@ FText FGASAbilitieNode::GetGAStateType()
 	else if (ASComponent->IsAbilityInputBlocked(AbilitySpecPtr.InputID))
 	{
 		//CN: OutType = LOCTEXT("InputBlocked", "输入阻止");
-		OutType = LOCTEXT("InputBlocked", "InputBlocked");
+		OutType = LOCTEXT("InputBlocked", "Blocked Input");
 		Tint = FLinearColor::Red;
 		ScreenGAMode = Blocked;
 	}
